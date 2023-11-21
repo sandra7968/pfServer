@@ -1,0 +1,83 @@
+                                    NODE JS
+            --------------------------------------------------
+    
+    1. JS Runtime Environment = JS Library
+    2. Features
+           - Extremely Faster
+           - Asynchronous Programming
+           - Single threaded with event loop
+           - Highly Scalable
+           - Open source
+    3. NODE JS Global Objects
+           - It can access anywhere from node js app without exporting or importing
+           - ex: console.log(),setTimeOut()
+    4. Node Js Module System
+           - Each file in node js app is considered as a seperate Module. To resue modules we have to export and importing
+           - To import a module: use require('module name') method
+           - To export a module: module.exports / exports keyword
+           - Built in modules
+                 - fs: file system - handling file related events
+                 - http: generating http request
+                 - https: generating https request
+                 - event: generating event
+                 - crypto: tools like encrypting, hashing etc.
+                 - process: used to provide currently running process information
+                        - environmental variable: used to store run time values
+    5. Node js Packages
+           - used to help solving common problems
+           - collection of node_module and package.json
+           - install package: npm i package-name
+           - create package.json: npm configuration file for project
+           - node_module folder: used to hold copies of installed packages
+           - package-lock.json: to hold version of installed packages
+    6. Backend Concepts
+           - Client-Server architecture: sending request and response between 2 application
+           - API: Apploication Programming Interface
+           - RESTful API: http request with json data
+           - CRUD: create, read, update, delete
+           - CORS: Cross Origin Resource Sharing
+
+           EXPRESS JS
+  -----------------------------------------------
+    1. Framework for resolving client server app of Node js
+    2. create a server folder    
+    3. create package.json file: use command:- npm init -y     
+    4. Update start command as "start":"node index.js" in scripts of package.json
+    5. Install packages
+         - Express: npm i express
+         - cors: npm i cors
+         - dotenv: npm i dotenv
+    6. create .env file tot hold environmental variables
+    7. create .gitignore to add file to ignore while adding to git
+    8. create index.js file to define server
+         - import dotenv
+         - import express
+         - import cors
+         - create express server
+         - use following in server
+             - cors
+             - parser for json
+         - customise port to listen http request
+         - run server app
+    9. create Routes folder in server to define Routes
+         - create router.js file 
+            - import express
+            - create router object of express to define path
+            - using router object define path
+            - to define logic to resolve http request, redirect it to its controller
+   10. create controller folder in server to define logic to solve API
+         - create Controller.js file
+            - create function to solve request
+  
+       Mongoose
+     -----------------------------------------       
+   1. Node.js library to communicate MongoDB
+   2. install Mongoose: npm install mongoose 
+   3. create new folder for define db connection using mongoose
+         - create a js file to define connectivity
+         - import mongoose
+         - get connection strong from process.env
+         - connect MongoDB with node using mongoose
+         - import connection js file in index.js file
+   4. Schema: it maps to a MongoDB collection and defines the shape of the documents within that collection
+   5. Model

@@ -21,3 +21,35 @@ exports.addProjects =  async (req,res)=>{
     }catch(err){
         res.status(401).json(`Request failed, Error:${err}`)
     }}
+
+// getuserprojects - token required
+exports.AllUserProjects = async (req,res)=>{
+    const userId = req.payload
+    try{
+        const userProjects = await projects.find({userId})
+        res.status(200).json(userProjects)
+    }catch(err){
+        res.status(401).json(err)
+    }
+}
+
+// getallprojects  - token required
+exports.getAllProjects = async (req,res)=>{
+    const userId = req.payload
+    try{
+        const projectDetails = await projects.find()
+        res.status(200).json(projectDetails)
+    }catch(err){
+        res.status(401).json(err)
+    }
+}
+
+// gethomeprojects
+exports.getHomeProjects = async (req,res)=>{
+    try{
+        const homeProjects = await projects.find().limit(3)
+        res.status(200).json(homeProjects)
+    }catch(err){
+        res.status(401).json(err)
+    }
+}

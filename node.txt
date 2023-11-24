@@ -81,3 +81,7 @@
          - import connection js file in index.js file
    4. Schema: it maps to a MongoDB collection and defines the shape of the documents within that collection
    5. Model
+
+      Multer
+  ---------------------------
+   1. Multer is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files.    

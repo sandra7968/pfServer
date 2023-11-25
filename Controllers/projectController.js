@@ -35,9 +35,12 @@ exports.AllUserProjects = async (req,res)=>{
 
 // getallprojects  - token required
 exports.getAllProjects = async (req,res)=>{
-    const userId = req.payload
+    const searchKey = req.query.search
+    const query = {
+        languages:{$regex:searchKey, $options:'i'}
+    }
     try{
-        const projectDetails = await projects.find()
+        const projectDetails = await projects.find(query)
         res.status(200).json(projectDetails)
     }catch(err){
         res.status(401).json(err)

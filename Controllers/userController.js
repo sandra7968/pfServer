@@ -37,3 +37,20 @@ exports.login = async (req,res)=>{
         res.status(401).json(`Register API Failed, Error:${err}`)
     }
 }
+
+// edit user
+exports.editUser = async (req,res)=>{
+    const userId = req.payload
+    const {username,email,password,github,linkedin,profile} = req.body
+    const uploadImage = req.file?req.file.filename:profile
+    try{
+        const updatedUser = await users.findByIdAndUpdate({_id:userId},{
+            username,email,password,github,linkedin,profile:uploadImage
+        },{new:true})
+        await updatedUser.save()
+        res.status(200).json(updatedUser)
+    }catch(err){
+        res.status(401).json(`${err}`)
+ 
+    }
+} 
